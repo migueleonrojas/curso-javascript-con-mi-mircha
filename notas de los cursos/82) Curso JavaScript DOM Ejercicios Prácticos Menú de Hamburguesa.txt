@@ -1,0 +1,20 @@
+Se va a crear un archivo llamado "dom_ejercicios.html"
+Se va a crear un archivo llamado "index-dom.js"
+Se va a crear un archivo llamado "menu-hamburguesa.js"
+Se va a crear un archivo llamado ""
+
+ejemplos (carpeta)
+    - dom_ejercicios.html (archivo)
+
+js (carpeta)
+    dom (carpeta)
+        - index_dom.js (archivo)
+        - menu_hamburguesa.js (archivo)
+
+css (carpeta)
+    dom_ejercicios.css
+
+
+Siguiente ejercicio
+
+Reloj digital y Alarma sonora

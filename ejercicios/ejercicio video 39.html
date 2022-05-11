@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios del video 39</title>
+</head>
+<body>
+
+    <h1>Ejercicios del video 39</h1>
+
+    <script>
+        /* 18) Programa una función que dada una cadena de texto cuente el número de vocales 
+        y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5. */
+
+        const conteoDeVocalesYLetras = (cadena = "") => {
+
+            if (cadena === "") return console.warn(`No ingresaste una cadena de texto`);
+            if (typeof cadena !== "string") return console.warn(`Solo puedes ingresar texto`);
+
+            const vocales = "aeiouáéíóú";
+            const letras = "bcdfghjklmnpqrstvwxyz";
+            let contadorVocales = 0;
+            let contadorConsonantes = 0;
+
+            cadena = cadena.toLowerCase();
+
+            for(let i = 0; i < cadena.split("").length; i++) {
+
+                for(let j = 0; j < vocales.split("").length; j++){
+
+                    if(cadena.split("")[i] === vocales.split("")[j]){
+
+                        contadorVocales++ 
+                    }
+
+                }
+
+                for(let k = 0; k < letras.split("").length; k++){
+
+                    if(cadena.split("")[i] === letras.split("")){
+
+                        contadorConsonantes++ 
+                    }
+
+                }
+            }
+
+            return console.info(`Vocales: ${contadorVocales}, Consonantes: ${contadorVocales}`);
+
+        }
+
+        //conteoDeVocalesYLetras("Ho,,,s");
+
+
+
+        /* 19) Programa una función que valide que un texto sea un nombre válido, 
+        pe. miFuncion("Jonathan MirCha") devolverá verdadero. */
+        const validarNombre = (nombre = "") => {
+
+            if (nombre === "") return console.warn(`No indico un nombre`);
+
+            if (typeof nombre !== "string") return console.warn(`Debes indicar un texto`);
+
+            let nombreValido = true;
+
+            nombre.replace(/[" "]{1,}/gm," ").split(" ").forEach(palabra => {
+
+                if( !(/^[A-Z]{1,}[a-z]{1,}$/gm.test(palabra)) )  nombreValido = false;
+
+                console.warn(`${/^[A-Z][a-z]{1,}/gm.test(palabra)}  => "${palabra}"`)
+
+            })
+
+            return (nombreValido)
+                ? console.info(`El texto "${nombre}" es valido`)
+                : console.error(`El texto "${nombre}" no es valido`) 
+
+        }
+         
+        //validarNombre("Miguel Eloy Leon Rojas")
+
+        /* 20) Programa una función que valide que un texto sea un email válido, 
+        pe. miFuncion("jonmircha@gmail.com") devolverá verdadero. */
+
+        const validarEmail = (email = "") => {
+
+            if(email === "") return console.warn(`El correo no lo has definido`);
+
+            if(typeof email !== "string") return console.warn(`Debes ingresar una cadena de texto`);
+
+            ( /^[a-zA-Z0-9_.-]+[@][0-9A-Za-z-]{1,}[.][A-Za-z]{2,15}$/gm.test(email)) 
+                ? console.info(`El email (${email}) es valido`)
+                : console.warn(`El email (${email}) no es valido`)
+            
+        }
+
+       
+
+        validarEmail();
+        validarEmail(34);
+        validarEmail("jon,mir,cha@gmail");
+        validarEmail("jonmircha@gmail.com");
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio del video 40</title>
+</head>
+<body>
+    
+    <h1>Ejercicios del video 40</h1>
+
+    <script>
+        /* 21) Programa una función que dado un array numérico devuelve otro array 
+        con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25]. */
+
+        const elevarNumero = (array = undefined) => {
+
+            if(array === undefined) return console.warn(`Debes indicar un array`);
+
+            if(!(array instanceof Array)) return console.warn(`El dato debe ser un array`);
+
+            if(array.length < 1) return console.warn(`Debes indicar un valor por lo menos`);
+
+            if(array.find(elemento => typeof elemento === "string") !== undefined) return console.warn(`Todos los elementos del array deben ser numericos`);
+
+            let arrayElevadoAlCuadrado = [];
+
+            array.forEach(elemento => {
+
+                arrayElevadoAlCuadrado.push(Math.pow(elemento,2));
+
+            });
+
+            return console.warn(`Array Original(${array}).\n Array Modificado(${arrayElevadoAlCuadrado})`);
+
+        }
+
+        //elevarNumero([2]);
+
+        /* 22) Programa una función que dado un array devuelva el número mas alto y el más 
+        bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60]. */
+        
+        const devuelveAlMayorYAlMenor = (array = undefined) => {
+
+
+            if(array === undefined) return console.warn(`Debes indicar un array`);
+
+            if(!(array instanceof Array)) return console.warn(`El dato debe ser un array`);
+
+            if(array.length < 2) return console.warn(`Debes indicar dos valores por lo menos`);
+
+            if(array.find(elemento => typeof elemento === "string") !== undefined) return console.warn(`Todos los elementos del array deben ser numericos`);
+
+            let nuevoArray = [Math.max(...array), Math.min(...array)]
+            console.info(`El array antiguo: (${array}), array nuevo (${nuevoArray})`);
+
+        }
+
+        //devuelveAlMayorYAlMenor([2,3,-66,1000,6,6,4,8]);
+
+
+        /* 23) Programa una función que dado un array de números devuelva un objeto con 2 
+        arreglos en el primero almacena los números pares y en el segundo los impares, 
+        pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) 
+        devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}. */
+
+        const devolverParesEImpares = (array = undefined) => {
+
+            if (array === undefined) return console.warn(`No has indicado el array`);
+
+            if ( !(array instanceof Array)) return console.warn(`Debe colocar un array`);
+
+            if ( array.find(elemento => typeof elemento === "string") !== undefined) return console.warn(`Todos los elementos del array deben ser numericos`);
+
+            if (array.length < 2) return console.warn(`Debe indicar por lo menos 2 elementos`);
+             
+            const pares = [];
+            const impares = [];
+
+            array.forEach( elemento =>{
+
+                if( elemento % 2 === 0 ) pares.push(elemento);
+
+                else impares.push(elemento);
+            })
+
+            const parEImpar = {
+                pares,
+                impares
+            }
+
+            
+
+            
+            return console.info( `${JSON.stringify(parEImpar)}`);
+        }
+
+        devolverParesEImpares([1,4,2,4,3,{}]);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Vamos a crear los siguientes archivos y/o carpetas:
+Se crearon estos archivos en el video 45 de modulos
+
+- carpeta: "ejemplos"
+    - archivo:  "asincronia.html"
+   

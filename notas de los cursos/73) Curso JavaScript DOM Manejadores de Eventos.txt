@@ -1,0 +1,7 @@
+Se va a modificar el archivo "dom.html"
+Se va a modificar el archivo "dom.js"
+- carpeta: "ejemplos"
+    - archivo:  "dom.html"
+
+- carpeta: "js"
+    - archivo:  "dom.js"

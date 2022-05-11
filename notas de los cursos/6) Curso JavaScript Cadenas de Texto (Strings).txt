@@ -1,0 +1,4 @@
+MDN = para la ver la documentacion sobre javascript
+
+Se va a modificar el archivo "basicos.html" en la carpeta correspondiente
+

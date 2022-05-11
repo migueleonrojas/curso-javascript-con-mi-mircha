@@ -1,0 +1,13 @@
+ejemplos (carpeta)
+    - dom_ejercicios.html (archivo)
+
+js (carpeta)
+    dom (carpeta)
+        - index_dom.js (archivo)
+        - teclado.js (archivo)    
+
+css (carpeta)
+    dom_ejercicios.css
+
+assets(carpeta)
+    alarma-de-evacuacin-evacuacion.mp3

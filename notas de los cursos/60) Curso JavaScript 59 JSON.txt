@@ -1,0 +1,6 @@
+Se va a modificar el archivo "nuevos-tipos"
+- carpeta: "ejemplos"
+    - archivo:  "nuevos-tipos.html"
+
+- carpeta: "js"
+    - json: "datos.json"

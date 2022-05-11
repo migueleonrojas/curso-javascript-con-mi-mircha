@@ -1,0 +1,5 @@
+Se va a crear el archivo "dom.html"
+- carpeta: "ejemplos"
+    - archivo:  "dom.html"
+
+

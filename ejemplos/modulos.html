@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulos en javascript</title>
+    
+</head>
+<body>
+    
+    <h1>Modulos en javascript</h1>
+    <script src="./../js/modulos.js" type="module"></script>
+    <!--
+        type="module"  : para que pueda llamar otro archivos js internamente
+        se recomienda llamar el js abajo, antes del cierre del body
+    -->
+
+    <!--
+        nomodule: para que los navegadores modernos no carguen el js que no soporta modulos
+    -->
+    <script src="./../js/no-modulos.js" nomodule></script>
+
+</body>
+</html>

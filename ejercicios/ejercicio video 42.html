@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios del video 42</title>
+</head>
+<body>
+    
+    <h1>Ejercicios del video 41</h1>
+
+    <script>
+        /* 
+
+        27) Programa una clase llamada Pelicula.
+
+        La clase recibirá un objeto al momento de instanciarse con los siguentes datos: 
+        id de la película en IMDB, titulo, director, año de estreno, país o países de origen, 
+        géneros y calificación en IMBD.
+
+        - Todos los datos del objeto son obligatorios.
+        - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+            7 restantes números.
+        - Valida que el título no rebase los 100 caracteres.
+        - Valida que el director no rebase los 50 caracteres.
+        - Valida que el año de estreno sea un número entero de 4 dígitos.
+        - Valida que el país o paises sea introducidos en forma de arreglo.
+        - Valida que los géneros sean introducidos en forma de arreglo.
+        - Valida que los géneros introducidos esten dentro de los géneros 
+            aceptados*.
+        - Crea un método estático que devuelva los géneros aceptados*.
+        - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+            decimal de una posición.
+        - Crea un método que devuelva toda la ficha técnica de la película.
+        - Apartir de un arreglo con la información de 3 películas genera 3 
+            instancias de la clase de forma automatizada e imprime la ficha técnica 
+            de cada película.
+
+        * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, 
+        Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, 
+        Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, 
+        Thriller, War, Western.
+
+        */
+
+
+        class Pelicula{
+
+            /* id de la película en IMDB, titulo, director, año de estreno, 
+            país o países de origen, 
+            géneros y calificación en IMBD. */
+
+            constructor(datosPelicula){
+
+                this.idPeliculaImdb = datosPelicula.idPeliculaImdb;
+                this.titulo =  datosPelicula.titulo;
+                this.director = datosPelicula.director;
+                this.anioEstreno = datosPelicula.anioEstreno;
+                this.paisOrigen = datosPelicula.paisOrigen;
+                this.generos = datosPelicula.generos;
+                this.clasificacionEnImdb = datosPelicula.clasificacionEnImdb;
+
+                if(this.idPeliculaImdb === undefined) return console.warn(`Debes de indicar el id de la pelicula`);
+
+                if( !(/^[a-z]{2}[0-9]{7}$/igm.test(this.idPeliculaImdb))) return console.warn(`El formato es de 2 letras y 7 numeros, ejm:fe8454154.`);
+
+                if(typeof this.idPeliculaImdb !== "string") return console.warn(`El valor que debes ingresar es un texto.`);
+
+
+                if(this.titulo === undefined) return console.warn(`Debes de indicar el id de la pelicula`);
+
+                if(typeof this.titulo !== "string") return console.warn(`Debes de indicar el titulo de la pelicula`);
+
+                if (this.titulo.length > 100) return console.warn(`No puedes sobrepasar las 100 letras`)
+                
+
+                if(this.director === undefined) return console.warn(`Debes de indicar el director de la pelicula`);
+
+                if(typeof this.director !== "string") return console.warn(`Debes de indicar el director de la pelicula`);
+
+                if (this.director.length > 50) return console.warn(`No puedes sobrepasar las 50 letras`)
+                
+
+                if(this.anioEstreno === undefined) return console.warn(`Debes de indicar el año de la pelicula`);
+
+                if(typeof this.anioEstreno !== "number") return console.warn(`Debes de indicar el director de la pelicula`);
+
+                if( !(/^[0-9]{4}$/igm.test(this.anioEstreno)) ) return console.warn(`Ingrese un numero de 4 digitos`);
+                
+
+                if(this.paisOrigen === undefined) return console.warn(`Debes de indicar el pais de origen de la pelicula`);
+
+                if( !(this.paisOrigen instanceof Array) ) return console.warn(`El pais debe ser un array`);
+
+                for (let pais of this.paisOrigen){
+
+                    if(typeof pais !== "string"){
+
+                        return console.warn(`Debes de ingresar solo valores de texto en el array de paises`);
+
+                    }
+                }
+
+                if(this.generos === undefined) return console.warn(`Debes de indicar el genero de la pelicula`);
+
+                if( !(this.generos instanceof Array) ) return console.warn(`El genero debe ser un array`);
+
+                for (let genero of this.generos){
+
+                    if(typeof genero !== "string"){
+
+                        return console.warn(`Debes de ingresar solo valores de texto en el array de generos`);
+
+                    }
+
+                    if(!(/Action|Adult|Adventure|Animation|Biography|Comedy|Crime|Documentary|Drama|Family|Fantasy|Film Noir|Game-Show|History|Horror|Musical|Music|Mystery|News|Reality-TV|Romance|Sci-Fi|Short|Sport|Talk-Show|Thriller|War|Western/igm.test(genero))) {
+
+                        return console.warn(`Debes ingresar uno de los siguiente generos permitidos: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.`);
+                    }
+                }
+
+
+                if( this.clasificacionEnImdb === undefined) return console.warn(`Debes de indicar la puntuacion de la pelicula`);
+                
+                if( typeof this.clasificacionEnImdb !== "number" ) return console.warn(`Debes de indicar un valor numerico para la puntuacion`);
+
+                if (this.clasificacionEnImdb < 0 || this.clasificacionEnImdb > 10  ) return console.warn(`El puntaje debe ser un numero de un decimal entre el 0 al 10`);
+
+                
+                if( this.clasificacionEnImdb.toString().indexOf(".") !== -1) {
+
+                    if( this.clasificacionEnImdb.toString().split(".")[1].length > 1) return console.warn(`Solo se permite un decimal`)
+                    
+                }
+
+
+            }
+
+            static generosAceptados() {
+
+                return console.info(`Los generos aceptados son: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.`)
+            }
+
+
+            /* La clase recibirá un objeto al momento de instanciarse con los 
+            siguentes datos: 
+            id de la película en IMDB, titulo, 
+            director, año de estreno, país o países de origen, 
+            géneros y calificación en IMBD. */
+
+            get fichaTecnica() {
+
+                console.info(`Titulo: ${this.titulo} \nDirector: ${this.director} \nAño de estreno: ${this.anioEstreno} \nPais de origen: ${this.paisOrigen} \nGeneros: ${this.generos} \nClasificacion: ${this.clasificacionEnImdb}`);
+
+            }
+
+        }
+
+        /* let pelicula = new Pelicula({
+            idPeliculaImdb : "se8454154", 
+            titulo: "The Shawshank Redemption", 
+            director: "Frank Darabont", 
+            anioEstreno: 1994, 
+            paisOrigen: ["USA","UK"], 
+            generos: ["Drama"], 
+            clasificacionEnImdb: 8.5
+        }); 
+        */
+        const peliculas = [
+
+            {
+                idPeliculaImdb : "se8454154", 
+                titulo: "The Shawshank Redemption", 
+                director: "Frank Darabont", 
+                anioEstreno: 1994, 
+                paisOrigen: ["USA","UK"], 
+                generos: ["Drama"], 
+                clasificacionEnImdb: 8.5
+            },
+
+            {
+                idPeliculaImdb : "gf4818478", 
+                titulo: "The Dark Knight", 
+                director: "Christopher Nolan", 
+                anioEstreno: 2008, 
+                paisOrigen: ["USA"], 
+                generos: ["Action", "Drama", "Crime"], 
+                clasificacionEnImdb: 9.0
+            },
+
+            {
+                idPeliculaImdb : "tg8542145", 
+                titulo: "The Matrix", 
+                director: "Lana Wachowski", 
+                anioEstreno: 1999, 
+                paisOrigen: ["USA"], 
+                generos: ["Action", "Sci-Fi"], 
+                clasificacionEnImdb: 9.0
+            }
+        ]
+
+        /* for(let pelicula of peliculas) {
+
+            new Pelicula({
+                idPeliculaImdb:pelicula.idPeliculaImdb,
+                titulo: pelicula.titulo,
+                director: pelicula.director,
+                anioEstreno: pelicula.anioEstreno,
+                paisOrigen: pelicula.paisOrigen,
+                generos: pelicula.generos,
+                clasificacionEnImdb: pelicula.clasificacionEnImdb
+            }).fichaTecnica
+
+        } */
+
+        peliculas.map(peli => {
+            new Pelicula({
+                peli
+            }).fichaTecnica;
+        })
+
+
+
+    </script>
+
+</body>
+</html>

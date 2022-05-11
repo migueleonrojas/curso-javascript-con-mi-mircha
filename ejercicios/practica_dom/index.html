@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="./dist/hamburgers.css" rel="stylesheet">
+    
+    <title>Ejercicios del DOM</title>
+</head>
+<body>
+
+    <main>
+
+        <h1 class="main_title">Ejercicios del DOM</h1>
+
+        <section id="section_one" class="section">
+            <h2 class="title_section">Reloj Digital y Alarma Sonora</h2>
+            <div class="buttons_reloj_alarm">
+                <button class="startReloj">Iniciar Reloj</button>
+                <button class="stopReloj">Detener Reloj</button>
+                <button class="startAlarm">Iniciar Alarma</button>
+                <button class="stopAlarm">Detener Alarma</button>
+            </div>
+
+            <audio class="alarm" loop>
+                <source src="./dist/alarma-de-evacuacin-evacuacion.mp3" type="audio/mpeg" >
+            </audio>
+            
+
+        </section>
+
+        <section id="section_two" class="section">
+            <h2 class="title_section">Eventos de teclado</h2>
+            <p class="instructions_move_dot">
+                Puedes mover el circulo amarillo 🟡, da click en el rectangulo negro y debes usar
+                las flechas del teclado ⬆️⬇️⬅️➡️
+            </p>
+            <div class="background_section">
+                <div class="big_dot"></div>
+            </div>
+        </section>
+
+        <section id="section_three" class="section">
+            <h2 class="title_section">Countdown</h2>
+            <div class="content_countdown">
+                <span class="count_down_time">saasas</span>
+            </div>
+        </section>
+        
+        <section id="section_four" class="section">
+            <h2 class="title_section">Sección 4</h2>
+        </section>
+
+        <section id="section_five" class="section">
+            <h2 class="title_section">Sección 5</h2>
+        </section>
+
+        <div class="button_hamburger">
+            <button class="hamburger hamburger--emphatic" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+
+    </main>
+
+    
+    <script src="./script.js" type="module"></script>
+    
+</body>
+</html>

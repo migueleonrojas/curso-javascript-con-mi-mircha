@@ -1,0 +1,13 @@
+Vamos a crear los siguientes archivos y/o carpetas:
+Se crearon estos archivos en el video 34 de modulos
+
+- archivo: "modulos.html"
+- carpeta: "js"
+    - archivo:  "modulos.js" <- aqui se van a colocar los ejemplos
+    - archivo:  "no-modulos.js"
+    - archivo:  "constantes.js"
+    - archivo:  "aritmetica.js"
+
+    
+
+

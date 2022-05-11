@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios del video 35</title>
+</head>
+<body>
+
+    <h1>Ejercicios del video numero 35</h1>
+
+    <script>
+
+
+       /*  5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH". */
+
+        const invertirPalabra = (palabra = "") =>{
+            if(typeof palabra != "string") return console.warn("Debe colocar un texto");
+            if(!palabra) return console.warn('Debe indicar una palabra')
+            
+            let palabraEnLetras = palabra.split("");
+
+            let palabraInvertida = "";
+
+            for (let i = palabraEnLetras.length - 1; i >=0; i--){
+
+                palabraInvertida += palabraEnLetras[i];
+            }
+
+            return console.info(palabraInvertida);
+        }
+
+        //invertirPalabra("No mames");
+
+
+        /* 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2. */
+
+        const contarRepeticiones = (texto = "", palabra = "") => {
+            if(!texto)      return console.warn('Debe indicar el texto')
+            if(!palabra)    return console.warn('Debe indicar la palabra')
+
+            let contador = 0;
+
+            texto.split(" ").map((palabraSeparada) => {
+                if (palabraSeparada === palabra){
+                    contador++;
+                }
+            });
+
+            return console.info(contador);
+            
+        }
+
+        //contarRepeticiones("hola mundo mundo adios mundo", "mundo");
+
+
+        /* 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true. */
+
+        const palidromo = (palabra = "") => {
+
+            (!palabra) 
+                ? console.warn("Debes ingresar la palabra")
+                :  (palabra.split("").reverse().join("") === palabra)
+                    ?  console.info(true)
+                    :  console.info(false)
+            
+
+        }
+
+        //palidromo("salas");
+
+        
+
+        /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5. */
+
+        const eliminarPatron = (texto = "", patron = "") => {
+
+            if(!texto){
+                return console.warn("Debe de indicar el texto");
+            }
+
+            if(!patron){
+                return console.warn("Debe de indicar el patron");
+            }
+
+            return console.info(`${texto.replaceAll(patron,"")}`)
+
+        }
+
+        eliminarPatron("acaxyz1, ascaxyz2, ascascxyz3, scascxyz4, scaxyz5", "xyz");
+
+    </script>
+    
+</body>
+</html>

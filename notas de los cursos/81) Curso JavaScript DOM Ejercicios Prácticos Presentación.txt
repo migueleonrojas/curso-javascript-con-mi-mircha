@@ -1,0 +1,14 @@
+Se va a crear un carpeta dentro de la carpeta "ejercicios"
+
+ejercicios  
+    practica_dom
+        index.html = se va a crear dentro de la carpeta practica_dom
+        style.css = se va a crear dentro de la carpeta practica_dom
+        script.js = se va a crear dentro de la carpeta practica_dom
+
+
+hamburguer css = para la animacion del boton que despliega el menu
+
+smooth scroll = scroll en la pagina web sin usar javascript
+
+reutilizacion del codigo = tratar que la funciones se puedan usar para otros proyectos

@@ -1,0 +1,25 @@
+ejemplos (carpeta)
+    - dom_ejercicios.html (archivo)
+
+js (carpeta)
+    dom (carpeta)
+        - index_dom.js (archivo)
+        - menu_hamburguesa.js (archivo)
+        - reloj.js (archivo)
+
+css (carpeta)
+    dom_ejercicios.css
+
+assets(carpeta)
+    alarma-de-evacuacin-evacuacion.mp3
+
+Se va a crear una alarma sonora
+
+Para la siguiente sesion
+
+atajos de teclado 
+
+alt + a = alert
+alt + p = prompt
+alt + c = confirm
+

@@ -1,0 +1,26 @@
+ejemplos (carpeta)
+    - dom_ejercicios.html (archivo)
+
+js (carpeta)
+    dom (carpeta)
+        - index_dom.js (archivo)
+        - teclado.js (archivo)  
+
+css (carpeta)
+    dom_ejercicios.css
+
+assets(carpeta)
+    alarma-de-evacuacin-evacuacion.mp3
+
+
+----------------------------------------------------------
+
+Siguiente reto a resolver:
+
+cuenta regresiva
+
+ver los apuntes del 34 al 43
+
+Parametros de la funcion = selector del elemento, fecha
+
+Que indique un mensaje cuando la cuenta regresiva llegue a su final

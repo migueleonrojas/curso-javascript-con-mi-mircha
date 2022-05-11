@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronia en JavaScript</title>
+</head>
+<body>
+    <h1>Asincronia en JavaScript</h1>
+    <script>
+        /* Video 44) Temporizadores (setTimeout & setInterval)  */
+
+        /* console.log("inicio");
+
+        // setTimeout = ejecuta el codigo una sola vez en x segundos
+        //setTimeout(() => {
+        //    console.log("Ejecutando un setTimeOut, esto se ejecuta una sola vez")
+        //}, 3000)
+
+        // setInterval = esto se ejecuta indefinidamente cada intervalo de tiempo
+        //setInterval(() => {
+        //    console.log("Ejecutando un setInterval, esto se ejecuta indefinidamente cada intervalo de tiempo")
+        //}, 1000);
+
+        //setInterval(() => {
+        //    console.log(new Date().toLocaleTimeString())
+        //}, 1000);
+
+        //let temporizador = setTimeout(() => {
+        //    console.log(new Date().toLocaleTimeString())
+        //}, 1000 );
+
+        //cancela un timeout
+        //clearTimeout(temporizador);
+        //console.log(`despues del clear`);
+
+
+        let temporizador = setInterval(() => {
+            console.log(new Date().toLocaleTimeString())
+        }, 1000 );
+
+        //cancela un setInterval
+        clearInterval(temporizador);
+        console.log(`despues del clearInterval`); */
+
+        /* Fin Video 44) Temporizadores (setTimeout & setInterval) */
+
+        /* Video 45) Asincronía y el Event Loop */
+
+        /* // Antes de explicar como funciona el modelo de JavaScript es importante entender algunos
+        // conceptos
+
+        //Procesamiento Single thread y Multi thread
+        
+
+        //Operaciones de CPU y Operaciones de I / O
+
+        //Operaciones Concurrentes y Paralelas
+
+        //Operaciones Bloqueantes y No Bloqueantes
+
+        //Operaciones Sincronas y Asincronas
+
+        // Javascript usa un modelo asincrono y no bloqueante,
+        // con un loop de eventos implementado en un solo hilo, (single thread) para
+        // operaciones de entrada y salida (input/output)
+
+        //  Codigo sincrono bloqueante /////////
+
+        (() => {
+
+            console.log("Codigo sincrono");
+            console.log("inicio");
+
+            function dos(){
+                console.log("dos");
+                
+            }
+
+            function uno(){
+                console.log("uno");
+                dos();
+                console.log("tres");
+            }
+
+            uno();
+            console.log("fin");
+
+        })();
+
+        console.log("*****************");
+
+        //  Codigo asincrono no bloqueante /////////
+
+        (() => {
+
+            console.log("Codigo Asincrono");
+            console.log("inicio");
+
+            function dos(){
+                setTimeout(function(){
+                    console.log("dos");
+                },1000);
+            }
+
+            function uno(){
+                setTimeout(function(){
+                    console.log("uno")
+                }, 0);
+
+                dos();
+
+                console.log("tres");
+            }
+
+            uno();
+            console.log("fin");
+
+        })(); */
+
+
+        /* Fin Video 45) Asincronía y el Event Loop */
+
+        /* Video 46) Callbacks */
+
+        /* function cuadradoCallback(value, callback) {
+
+            setTimeout(() =>{
+
+                callback(value, value*value);
+
+            },0 | Math.random() * 1000)
+
+        }
+
+        cuadradoCallback(0, (value, resultado) => {
+            console.log("Inicia callback");
+            console.log(`Callback: ${value}. ${resultado}`);
+            cuadradoCallback(1, (value, resultado) => {
+                console.log(`Callback: ${value}. ${resultado}`);
+                cuadradoCallback(2, (value, resultado) => {
+                    console.log(`Callback: ${value}. ${resultado}`);
+                    cuadradoCallback(3, (value, resultado) => {
+                        console.log(`Callback: ${value}. ${resultado}`);
+                        cuadradoCallback(4, (value, resultado) => {
+                            console.log(`Callback: ${value}. ${resultado}`);
+                            cuadradoCallback(5, (value, resultado) => {
+                                console.log(`Callback: ${value}. ${resultado}`);
+                            });
+                        });
+                    });
+                });
+            
+            });
+            
+        }); */
+
+        
+
+        /* Fin Video 46) Callbacks */
+
+
+        /* Video 47) Promesas */
+
+
+        /* //pasando esta funcion de callback a promesa
+        function cuadradoCallback(value, callback) {
+
+            setTimeout(() =>{
+
+                callback(value, value*value);
+
+            },0 | Math.random() * 1000)
+        }
+
+        //funcion pasado a promesa
+        function cuadradoPromise(value) {
+
+            if(typeof value !== "number") {
+                return Promise.reject(`Error, el valor "${value}" ingresado no es un numero`);
+            }
+
+
+            return new Promise((resolve, reject) => {
+                setTimeout(() =>{
+
+                    resolve({
+                        value,
+                        result: value * value
+                    });
+
+                },0 | Math.random() * 1000)
+
+            });
+        }
+
+        //then = captura lo que devuelve el resolve
+        //catch = captura el error resultante del reject
+
+        cuadradoPromise(0)
+            .then((obj) => {
+
+                console.log(`Inicia Promise`);
+                console.log(`Promise ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(1);
+
+            })
+            .then((obj) => {
+                console.log(`Promise ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(2);
+            })
+            .then((obj) => {
+                console.log(`Promise ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(3);
+            })
+            .then((obj) => {
+                console.log(`Promise ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(4);
+            })
+            .then((obj) => {
+                console.log(`Promise ${obj.value}, ${obj.result}`);
+                return cuadradoPromise(5);
+            })
+            .then((obj) => {
+                console.log(`Promise ${obj.value}, ${obj.result}`);
+                console.log(`Fin Promise`);
+            })
+            .catch(err => console.error(err));
+
+        */
+
+        /* Fin Video 47) Promesas */
+
+        /* Video 48). Async - Await */
+
+        /* function cuadradoPromise(value) {
+
+            if(typeof value !== "number") {
+                return Promise.reject(`Error, el valor "${value}" ingresado no es un numero`);
+            }
+
+            return new Promise((resolve, reject) => {
+
+                setTimeout(() =>{
+
+                    resolve({
+                        value,
+                        result: value * value
+                    });
+
+                },0 | Math.random() * 1000)
+
+            });
+        }
+
+        //nueva manera de llamar a una promesa con funciones asincronas
+
+        //async = indica que la funcion es asincrona
+        async function funcionAsincronaDeclarada(){
+            
+            try{
+                console.log(`Inicio Async Function`);
+
+                //await = espera a que se ejecute la funcion asincrona
+                let obj = await cuadradoPromise(0);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(1);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(2);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(3);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(4);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(5);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                console.log("Fin Async Function");
+            }
+
+            catch(err){
+                console.error(err);
+            }
+        }
+
+        funcionAsincronaDeclarada();
+
+
+        // lo mismo de arriba paro con una funcion expresada
+        const funcionAsincronaExpresada = async () => {
+
+            try{
+                console.log(`Inicio Async Function`);
+
+                //await = espera a que se ejecute la funcion asincrona
+                let obj = await cuadradoPromise(6);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(7);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(8);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(9);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                obj = await cuadradoPromise(10);
+                console.log(`Async Function: ${obj.value}, ${obj.result}`);
+
+                console.log("Fin Async Function");
+            }
+            catch(err){
+                console.error(err);
+            }
+        };
+
+
+        funcionAsincronaExpresada(); */
+
+        /* Fin Video 48). Async - Await */
+
+        
+    </script>
+</body>
+</html>

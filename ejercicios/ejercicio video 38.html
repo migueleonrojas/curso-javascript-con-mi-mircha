@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios del video 38</title>
+</head>
+<body>
+    <h1>Ejercicios del video 38</h1>
+
+    <script>
+
+        /* 
+        15) Programa una función para convertir números de base binaria a decimal y viceversa, 
+        pe. miFuncion(100,2) devolverá 4 base 10.
+        */
+
+        const binarioADecimalYViceversa = (numero = undefined, base = undefined) => {
+
+            if(numero === undefined) return console.warn(`No has ingresado el numero a convertir`);
+            if(typeof numero != "number") return console.warn(`Debe ingresar un numero`);            
+
+            if(base === undefined) return console.warn(`No has ingresado la base`);
+            if(typeof base != "number") return console.warn(`La base deber ser un valor numerico`);
+            if( Math.sign(base) === -1 || !/2|10/.test(base)) return console.warn(`Debe ingresar los valores 2 o 10`);
+
+            if( Math.sign(numero) === -1 && base === 2) return console.warn(`No puede convertir un numero binario que tenga un signo negativo`);
+            if( !/^[0-1]+$/gm.test(numero) && base === 2 ) {
+                return console.warn(`El numero que ingreso no es binario`);
+            }
+
+            if(base === 2) {
+
+                let numeroDecimal = 0;
+
+                numero.toString().split("").reverse().map((digito,index) => {
+                    
+                    numeroDecimal +=  digito * Math.pow(2,index);
+
+                });
+
+                return console.info(`El numero binario ${numero} en decimal es ${numeroDecimal}`);
+
+            }
+
+            else {
+
+                let numeroBinario = "";
+                let resultadoDivision = numero;
+                
+                while (resultadoDivision > 1) {
+
+                    numeroBinario += String(resultadoDivision  % 2); 
+                    resultadoDivision = resultadoDivision / 2;
+                    resultadoDivision = Math.floor(resultadoDivision);
+
+                }
+
+                numeroBinario = numeroBinario.split("");
+                numeroBinario.push(String(Math.floor(resultadoDivision)));
+                return console.info(`El numero decimal ${numero} en binario es ${numeroBinario.reverse().join("")}`);
+            }
+
+            /* 1011010101 */
+
+
+           
+
+        }
+
+        //binarioADecimalYViceversa(725,10);
+
+        /* 
+        16) Programa una función que devuelva el monto final después de aplicar un 
+        descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800. 
+        */
+        
+        const darDescuento = (monto = undefined, descuento = undefined) => {
+
+            if(monto === undefined ) return console.warn(`Debes de indicar el monto`);
+            if( Math.sign(monto) === -1) return console.warn(`Debes indicar un monto positivo`);
+            if(monto <= 0) return console.warn(`Debes indicar un monto mayor que 0`);
+            if(typeof monto != "number") return console.warn(`Debe ingresar un numero en el parametro monto`);            
+
+            if(descuento === undefined ) return console.warn(`Debes de indicar el descuento`);
+            if( Math.sign(descuento) === -1) return console.warn(`Debes indicar un descuento positivo`);
+            if(descuento <= 0) return console.warn(`Debes indicar un porcentaje mayor a 0`);
+            if(typeof descuento != "number") return console.warn(`Debe ingresar un numero en el parametro descuento`);
+            
+
+            return console.info(`El descuento de ${monto} es ${monto - ((monto/100) * descuento)}`);
+            
+
+        }
+
+        //darDescuento(50,50);
+
+
+        /* 
+        17) Programa una función que dada una fecha válida determine cuantos años han pasado 
+        hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020). 
+        */
+
+        const calculoAnios =  ( fecha ) => {
+
+            let fechaActual = new Date();
+
+            let fechaPrimeroEnero = new Date(fechaActual.getFullYear(), 0, 1);
+            let fechaDefinida =  new Date(fechaActual.getFullYear(), fecha.getMonth(), fecha.getDate());
+
+            let diasDeLafechaActual = (fechaActual - fechaPrimeroEnero)/(1000*60*60*24);
+            let diasDeLafechaDefinida = (fechaDefinida - fechaPrimeroEnero)/(1000*60*60*24);
+
+
+
+            if (fecha.getFullYear() < 1920 || fecha.getFullYear() > fechaActual.getFullYear()){
+                return console.warn(`Indique una anio mayor a 1920 y menor a ${fechaActual.getFullYear()}`)
+            }
+
+            return (diasDeLafechaDefinida > diasDeLafechaActual)
+                ? console.info(`Usted tiene ${fechaActual.getFullYear() - fecha.getFullYear()}`)
+                : console.info(`Usted tiene ${fechaActual.getFullYear() - fecha.getFullYear() - 1}`)
+
+        }
+
+        //calculoAnios(new Date(1994,11,8));
+
+    </script>
+    
+</body>
+</html>

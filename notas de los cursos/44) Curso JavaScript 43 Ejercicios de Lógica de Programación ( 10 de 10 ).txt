@@ -1,0 +1,3 @@
+Para la solucion de los ejercicios del video anterior se va a realizar en:
+
+- archivo: basicos-ejercicios.html
